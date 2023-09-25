@@ -16,7 +16,12 @@
           email
         />
       </mat-form-field>
-      <mat-error>Email is mandatory.</mat-error>
+      <mat-error *ngIf="email.touched && email.errors?.required"
+        >Email is mandatory.</mat-error
+      >
+      <mat-error *ngIf="email.touched && email.errors?.email"
+        >Please enter valid email.</mat-error
+      >
     </div>
     <div class="mat-form-field">
       <mat-form-field appearance="outline">
@@ -28,8 +33,12 @@
           placeholder="Email"
           name="password"
           required
+          appPasswordStrength
         />
       </mat-form-field>
+      <mat-error *ngIf="password.touched && password.errors?.required"
+        >Password is mandatory.</mat-error
+      >
     </div>
   </form>
   <div>
