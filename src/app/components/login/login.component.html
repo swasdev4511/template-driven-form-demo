@@ -1,0 +1,43 @@
+<div class="container">
+  <form ngForm="loginForm">
+    <div class="header">
+      <span>Login</span>
+    </div>
+    <div class="mat-form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          [(ngModel)]="loginForm.email"
+          #email="ngModel"
+          placeholder="Email"
+          name="email"
+          required
+          email
+        />
+      </mat-form-field>
+      <mat-error>Email is mandatory.</mat-error>
+    </div>
+    <div class="mat-form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [(ngModel)]="loginForm.password"
+          #password="ngModel"
+          placeholder="Email"
+          name="password"
+          required
+        />
+      </mat-form-field>
+    </div>
+  </form>
+  <div>
+    <span>Email : {{ email.errors | json }}</span
+    ><br />
+    <span>Password : {{ password.errors | json }}</span>
+  </div>
+  <div>
+    <span>Form Values : {{ loginForm | json }}</span>
+  </div>
+</div>
