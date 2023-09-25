@@ -35,6 +35,7 @@
           name="password"
           required
           minlength="8"
+          passwordStrength
         />
       </mat-form-field>
       <mat-error *ngIf="password.touched && password.errors?.required"
@@ -44,6 +45,11 @@
         >At least {{ password.errors?.minlength?.requiredLength }} characters
         are required.You have entered only
         {{ password.errors?.minlength?.actualLength }} characters.</mat-error
+      >
+
+      <mat-error *ngIf="password.touched && password.errors?.passwordStrength"
+        >At least one Uppercase, one Lowercase and one numeric value is
+        required.</mat-error
       >
     </div>
   </form>
