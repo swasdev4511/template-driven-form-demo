@@ -30,14 +30,19 @@
           matInput
           [(ngModel)]="loginForm.password"
           #password="ngModel"
-          placeholder="Email"
+          placeholder="Password"
           name="password"
           required
-          appPasswordStrength
+          minlength="8"
         />
       </mat-form-field>
       <mat-error *ngIf="password.touched && password.errors?.required"
         >Password is mandatory.</mat-error
+      >
+      <mat-error *ngIf="password.touched && password.errors?.minlength"
+        >At least {{ password.errors?.minlength?.requiredLength }} characters
+        are required.You have entered only
+        {{ password.errors?.minlength?.actualLength }} characters.</mat-error
       >
     </div>
   </form>
