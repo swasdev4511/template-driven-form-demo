@@ -9,6 +9,7 @@
         <input
           matInput
           [(ngModel)]="loginForm.email"
+          [ngModelOptions]="{ updateOn: 'blur' }"
           #email="ngModel"
           placeholder="Email"
           name="email"
